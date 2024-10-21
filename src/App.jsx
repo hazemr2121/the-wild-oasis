@@ -1,4 +1,6 @@
-import { BrowserRouter, Navigate, Route, Router } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+
+import GlobalStyles from "./styles/GlobalStyles";
 import Dashboard from "./pages/Dashboard";
 import Bookings from "./pages/Bookings";
 import Cabins from "./pages/Cabins";
@@ -7,7 +9,6 @@ import Settings from "./pages/Settings";
 import Account from "./pages/Account";
 import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
-import GlobalStyles from "./styles/GlobalStyles";
 import AppLayout from "./ui/AppLayout";
 
 function App() {
@@ -15,13 +16,9 @@ function App() {
     <>
       <GlobalStyles />
       <BrowserRouter>
-        <Router>
+        <Routes>
           <Route element={<AppLayout />}>
-            <Route
-              index
-              replace
-              element={<Navigate replace to="dashboard" />}
-            />
+            <Route index element={<Navigate replace to="dashboard" />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="bookings" element={<Bookings />} />
             <Route path="cabins" element={<Cabins />} />
@@ -29,9 +26,10 @@ function App() {
             <Route path="settings" element={<Settings />} />
             <Route path="account" element={<Account />} />
           </Route>
+
           <Route path="login" element={<Login />} />
           <Route path="*" element={<PageNotFound />} />
-        </Router>
+        </Routes>
       </BrowserRouter>
     </>
   );
