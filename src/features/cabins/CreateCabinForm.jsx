@@ -2,7 +2,6 @@ import { Textarea } from "../../ui/Textarea";
 import { useForm } from "react-hook-form";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createEditCabin } from "../../services/apiCabins";
-import styled from "styled-components";
 import FileInput from "../../ui/FileInput";
 import Input from "../../ui/Input";
 import Form from "../../ui/Form";
@@ -31,7 +30,7 @@ function CreateCabinForm({ cabinToEdit = {} }) {
   });
 
   const { mutate: editCabin, isLoading: isEditing } = useMutation({
-    mutationFn: ({ newCabinData, id }) => createEditCabin(createEditCabin, id),
+    mutationFn: ({ newCabinData, id }) => createEditCabin(newCabinData, id),
     onSuccess: () => {
       toast.success("Cabin successfully edited");
       queryClient.invalidateQueries({
@@ -46,13 +45,12 @@ function CreateCabinForm({ cabinToEdit = {} }) {
 
   function onSubmit(data) {
     const image = typeof data.image === "string" ? data.image : data.image[0];
-    if (isEditSession)
-      return editCabin({ newCabinData: { ...data, image }, id: editId });
-
-    createCabin({ ...data, image: image });
+    if (isEditSession) {
+      editCabin({ newCabinData: { ...data, image }, id: editId });
+    } else createCabin({ ...data, image: image });
   }
   function onError(errors) {
-    // console.log(errors);
+    console.log(errors);
   }
   return (
     <Form onSubmit={handleSubmit(onSubmit, onError)}>
@@ -135,7 +133,7 @@ function CreateCabinForm({ cabinToEdit = {} }) {
           Cancel
         </Button>
         <Button disabled={isWorking}>
-          {isEditSession ? "Edit Cabin" : "Add Cabin"}
+          {isEditSession ? "Edit Cabin" : "Create new Cabin"}
         </Button>
       </FormRow>
     </Form>
