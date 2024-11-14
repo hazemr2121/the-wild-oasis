@@ -32,6 +32,7 @@ function CheckinBooking() {
   const { settings, isLoading: isLoadingSettings } = useSettings();
   const moveBack = useMoveBack();
   useEffect(() => setConfirmPaid(booking.isPaid), [booking]);
+  if (isLoading || isLoadingSettings) return <Spinner />;
   const {
     id: bookingId,
     guests,
@@ -56,7 +57,6 @@ function CheckinBooking() {
       });
     } else checkin({ bookingId, breakfast: {} });
   }
-  if (isLoading || isLoadingSettings) return <Spinner />;
   return (
     <>
       <Row type="horizontal">

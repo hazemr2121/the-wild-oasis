@@ -95,14 +95,6 @@ function BookingRow({
           >
             See details
           </Menus.Button>
-          <Menus.Button
-            icon={<HiEye />}
-            onClick={() => {
-              console.log(bookingId);
-            }}
-          >
-            bookingId
-          </Menus.Button>
           {status === "unconfirmed" && (
             <Menus.Button
               icon={<HiArrowDownOnSquare />}

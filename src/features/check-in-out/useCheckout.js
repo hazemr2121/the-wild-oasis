@@ -1,10 +1,8 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { updateBooking } from "../../services/apiBookings";
 import toast from "react-hot-toast";
-import { useParams } from "react-router-dom";
 
 export function useCheckout() {
-  const { bookingId } = useParams();
   const queryClient = useQueryClient();
   const { mutate: checkout, isLoading: isCheckingOut } = useMutation({
     mutationFn: (bookingId) =>
