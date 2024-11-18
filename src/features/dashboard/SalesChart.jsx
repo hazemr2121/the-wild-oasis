@@ -95,7 +95,7 @@ function SalesChart({ bookings, numDays }) {
       };
   return (
     <StyledSalesChart>
-      <Heading ass="h2">Sales</Heading>
+      <Heading as="h2">Sales</Heading>
       <ResponsiveContainer height={300} width="100%">
         <AreaChart data={data} height={300} width={700}>
           <XAxis
