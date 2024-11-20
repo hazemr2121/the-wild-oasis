@@ -1,7 +1,7 @@
 import { Textarea } from "../../ui/Textarea";
 import { useForm } from "react-hook-form";
 import FileInput from "../../ui/FileInput";
-import Input from "../../ui/Input";
+import InputStayled from "../../ui/InputStayled";
 import Form from "../../ui/Form";
 import Button from "../../ui/Button";
 import FormRow from "../../ui/FormRow";
@@ -53,14 +53,14 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
       type={onCloseModal ? "modal" : "regular"}
     >
       <FormRow label="Cabin name" error={errors?.name?.message}>
-        <Input
+        <InputStayled
           type="text"
           id="name"
           {...register("name", { required: "This field is required" })}
         />
       </FormRow>
       <FormRow label="Maximum capacity" error={errors?.maxCapacity?.message}>
-        <Input
+        <InputStayled
           type="number"
           id="maxCapacity"
           disabled={isWorking}
@@ -74,7 +74,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
         />
       </FormRow>
       <FormRow label="Regular price" error={errors?.regularPrice?.message}>
-        <Input
+        <InputStayled
           type="number"
           id="regularPrice"
           disabled={isWorking}
@@ -89,7 +89,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
       </FormRow>
 
       <FormRow label="Discoint" error={errors?.discount?.message}>
-        <Input
+        <InputStayled
           type="number"
           id="discount"
           disabled={isWorking}

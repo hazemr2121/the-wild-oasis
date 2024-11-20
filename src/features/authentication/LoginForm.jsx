@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "../../ui/Button";
 import Form from "../../ui/Form";
 import FormRowVertical from "../../ui/FormRowVertical";
-import Input from "../../ui/Input";
+import InputStayled from "../../ui/InputStayled";
 import { useLogin } from "./useLogin";
 import SpinnerMini from "../../ui/SpinnerMini";
 
@@ -30,7 +30,7 @@ function LoginForm() {
   return (
     <Form onSubmit={handleSubmit}>
       <FormRowVertical label="Email address" orientation="vertical">
-        <Input
+        <InputStayled
           type="email"
           id="email"
           // This makes this form better for password managers
@@ -41,7 +41,7 @@ function LoginForm() {
         />
       </FormRowVertical>
       <FormRowVertical label="Password" orientation="vertical">
-        <Input
+        <InputStayled
           type="password"
           id="password"
           autoComplete="current-password"

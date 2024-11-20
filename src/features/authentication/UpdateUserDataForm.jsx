@@ -4,7 +4,7 @@ import Button from "../../ui/Button";
 import FileInput from "../../ui/FileInput";
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
-import Input from "../../ui/Input";
+import InputStayled from "../../ui/InputStayled";
 import { useUpdateUser } from "./useUpdateUser";
 
 function UpdateUserDataForm() {
@@ -45,10 +45,10 @@ function UpdateUserDataForm() {
   return (
     <Form onSubmit={handleSubmit}>
       <FormRow label="Email address">
-        <Input value={email} disabled />
+        <InputStayled value={email} disabled />
       </FormRow>
       <FormRow label="Full name">
-        <Input
+        <InputStayled
           type="text"
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}

@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import Button from "../../ui/Button";
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
-import Input from "../../ui/Input";
+import InputStayled from "../../ui/InputStayled";
 import { useSignup } from "./useSignup";
 
 // Email regex: /\S+@\S+\.\S+/
@@ -17,7 +17,7 @@ function SignupForm() {
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <FormRow label="Full name" error={errors?.fullName?.message}>
-        <Input
+        <InputStayled
           type="text"
           id="fullName"
           disabled={isLoading}
@@ -28,7 +28,7 @@ function SignupForm() {
       </FormRow>
 
       <FormRow label="Email address" error={errors?.email?.message}>
-        <Input
+        <InputStayled
           type="email"
           id="email"
           disabled={isLoading}
@@ -46,7 +46,7 @@ function SignupForm() {
         label="Password (min 8 characters)"
         error={errors?.password?.message}
       >
-        <Input
+        <InputStayled
           type="password"
           id="password"
           disabled={isLoading}
@@ -61,7 +61,7 @@ function SignupForm() {
       </FormRow>
 
       <FormRow label="Repeat password" error={errors?.passwordConfirm?.message}>
-        <Input
+        <InputStayled
           type="password"
           id="passwordConfirm"
           disabled={isLoading}
