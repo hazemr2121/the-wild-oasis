@@ -12,11 +12,7 @@ import Spinner from "../../ui/Spinner";
 import { useMoveBack } from "../../hooks/useMoveBack";
 import { useNavigate } from "react-router-dom";
 import { useBooking } from "./useBooking";
-import {
-  HiArrowDownOnSquare,
-  HiArrowUpOnSquare,
-  HiXCircle,
-} from "react-icons/hi2";
+import { HiArrowUpOnSquare } from "react-icons/hi2";
 import { useCheckout } from "../check-in-out/useCheckout";
 import { useBookingDelete } from "./useBookingdelete";
 import Modal from "../../ui/Modal";
