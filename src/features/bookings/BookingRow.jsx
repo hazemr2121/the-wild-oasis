@@ -17,7 +17,7 @@ import {
 } from "react-icons/hi2";
 import { useNavigate } from "react-router-dom";
 import { useCheckout } from "../check-in-out/useCheckout";
-import { useBookingDelete } from "./useBookingdelete";
+import { useBookingDelete } from "./useBookingDelete";
 
 const Cabin = styled.div`
   font-size: 1.6rem;
