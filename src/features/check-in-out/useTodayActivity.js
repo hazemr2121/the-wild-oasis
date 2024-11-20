@@ -6,5 +6,6 @@ export function useTodayActivity() {
     queryFn: getStaysTodayActivity,
     queryKey: ["today-activity"],
   });
-  return { isLoading, activities };
+
+  return { activities, isLoading };
 }

@@ -19,6 +19,7 @@ function AddCabin() {
 
 // function AddCabin() {
 //   const [isOpenModal, setIsOpenModal] = useState(false);
+
 //   return (
 //     <div>
 //       <Button onClick={() => setIsOpenModal((show) => !show)}>

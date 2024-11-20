@@ -25,6 +25,7 @@ const StyledSalesChart = styled(DashboardBox)`
 
 function SalesChart({ bookings, numDays }) {
   const { isDarkMode } = useDarkMode();
+
   const allDates = eachDayOfInterval({
     start: subDays(new Date(), numDays - 1),
     end: new Date(),
@@ -55,14 +56,16 @@ function SalesChart({ bookings, numDays }) {
         text: "#374151",
         background: "#fff",
       };
+
   return (
     <StyledSalesChart>
       <Heading as="h2">
         Sales from {format(allDates.at(0), "MMM dd yyyy")} &mdash;{" "}
-        {format(allDates.at(-1), "MMM dd yyyy")}
+        {format(allDates.at(-1), "MMM dd yyyy")}{" "}
       </Heading>
+
       <ResponsiveContainer height={300} width="100%">
-        <AreaChart data={data} height={300} width={700}>
+        <AreaChart data={data}>
           <XAxis
             dataKey="label"
             tick={{ fill: colors.text }}
@@ -73,15 +76,15 @@ function SalesChart({ bookings, numDays }) {
             tick={{ fill: colors.text }}
             tickLine={{ stroke: colors.text }}
           />
-          <Tooltip contentStyle={{ backgroundColor: colors.background }} />
           <CartesianGrid strokeDasharray="4" />
+          <Tooltip contentStyle={{ backgroundColor: colors.background }} />
           <Area
             dataKey="totalSales"
             type="monotone"
             stroke={colors.totalSales.stroke}
             fill={colors.totalSales.fill}
             strokeWidth={2}
-            name="Total Sales"
+            name="Total sales"
             unit="$"
           />
           <Area
@@ -90,7 +93,7 @@ function SalesChart({ bookings, numDays }) {
             stroke={colors.extrasSales.stroke}
             fill={colors.extrasSales.fill}
             strokeWidth={2}
-            name="Extras Sales"
+            name="Extras sales"
             unit="$"
           />
         </AreaChart>

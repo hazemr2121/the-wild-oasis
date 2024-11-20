@@ -8,12 +8,20 @@ import Stat from "./Stat";
 import { formatCurrency } from "../../utils/helpers";
 
 function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
+  // 1.
   const numBookings = bookings.length;
-  const salse = bookings.reduce((acc, cur) => acc + cur.totalPrice, 0);
-  const numCheckins = confirmedStays.length;
+
+  // 2.
+  const sales = bookings.reduce((acc, cur) => acc + cur.totalPrice, 0);
+
+  // 3.
+  const checkins = confirmedStays.length;
+
+  // 4.
   const occupation =
     confirmedStays.reduce((acc, cur) => acc + cur.numNights, 0) /
     (numDays * cabinCount);
+  // num checked in nights / all available nights (num days * num cabins)
 
   return (
     <>
@@ -27,13 +35,13 @@ function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
         title="Sales"
         color="green"
         icon={<HiOutlineBanknotes />}
-        value={formatCurrency(salse)}
+        value={formatCurrency(sales)}
       />
       <Stat
         title="Check ins"
         color="indigo"
         icon={<HiOutlineCalendarDays />}
-        value={numCheckins}
+        value={checkins}
       />
       <Stat
         title="Occupancy rate"
