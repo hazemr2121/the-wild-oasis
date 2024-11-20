@@ -1,7 +1,7 @@
 import Button from "../../ui/Button";
 import { useCheckout } from "./useCheckout";
 
-function CheckoutButton({ bookingId }) {
+function CheckOutButton({ bookingId }) {
   const { checkout, isCheckingOut } = useCheckout();
   return (
     <Button
@@ -15,4 +15,4 @@ function CheckoutButton({ bookingId }) {
   );
 }
 
-export default CheckoutButton;
+export default CheckOutButton;
