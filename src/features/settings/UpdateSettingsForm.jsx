@@ -1,8 +1,8 @@
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
-import Input from "../../ui/Input";
-import Spinner from "../../ui/Spinner";
+import InputStayled from "../../ui/InputStayled";
 import { useSettings } from "./useSettings";
+import Spinner from "../../ui/Spinner";
 import { useUpdateSetting } from "./useUpdateSetting";
 
 function UpdateSettingsForm() {
@@ -10,18 +10,18 @@ function UpdateSettingsForm() {
     isLoading,
     settings: {
       minBookingLength,
-      maxBookingLength,
+      maxBookinglength,
       maxGuestsPerBooking,
       breakfastPrice,
     } = {},
   } = useSettings();
+
   const { isUpdating, updateSetting } = useUpdateSetting();
 
   if (isLoading) return <Spinner />;
 
   function handleUpdate(e, field) {
     const { value } = e.target;
-
     if (!value) return;
     updateSetting({ [field]: value });
   }
@@ -29,7 +29,7 @@ function UpdateSettingsForm() {
   return (
     <Form>
       <FormRow label="Minimum nights/booking">
-        <Input
+        <InputStayled
           type="number"
           id="min-nights"
           defaultValue={minBookingLength}
@@ -37,19 +37,17 @@ function UpdateSettingsForm() {
           onBlur={(e) => handleUpdate(e, "minBookingLength")}
         />
       </FormRow>
-
       <FormRow label="Maximum nights/booking">
-        <Input
+        <InputStayled
           type="number"
           id="max-nights"
-          defaultValue={maxBookingLength}
+          defaultValue={maxBookinglength}
           disabled={isUpdating}
-          onBlur={(e) => handleUpdate(e, "maxBookingLength")}
+          onBlur={(e) => handleUpdate(e, "maxBookinglength")}
         />
       </FormRow>
-
       <FormRow label="Maximum guests/booking">
-        <Input
+        <InputStayled
           type="number"
           id="max-guests"
           defaultValue={maxGuestsPerBooking}
@@ -57,9 +55,8 @@ function UpdateSettingsForm() {
           onBlur={(e) => handleUpdate(e, "maxGuestsPerBooking")}
         />
       </FormRow>
-
       <FormRow label="Breakfast price">
-        <Input
+        <InputStayled
           type="number"
           id="breakfast-price"
           defaultValue={breakfastPrice}
