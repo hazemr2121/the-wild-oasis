@@ -13,9 +13,9 @@
   <div align="center">
     <a href="https://the-wildest-oasis.vercel.app">View website</a>
     •
-    <a href="https://github.com/CodeWithAlamin/The-Wild-Oasis/issues">Report Bug</a>
+    <a href="https://github.com/hazemr21221/The-Wild-Oasis/issues">Report Bug</a>
     •
-    <a href="https://github.com/CodeWithAlamin/The-Wild-Oasis/pulls">Request Feature</a>
+    <a href="https://github.com/hazemr2121/The-Wild-Oasis/pulls">Request Feature</a>
   </div>
 
   <hr>
